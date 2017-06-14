@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: danawacomputer
@@ -11,6 +12,28 @@
     <title>Title</title>
 </head>
 <body>
-<h1>${articleId}번 글이 조회되었습니다.</h1>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"> ${articleId}번 글이 조회되었습니다. </div>
+    <!-- Table -->
+    <table class="table">
+
+        <tr>
+            <td> 제목   </td>
+            <td> 작성자 </td>
+            <td> 내용   </td>
+        </tr>
+        <c:forEach var="article" items="${list}">
+            <tr>
+                <td>  <a href="/bbs/${article.articleId}"/> ${article.title}</td>
+                <td>  ${article.author} </td>
+                <td>  ${article.content} </td>
+            </tr>
+        </c:forEach>
+
+    </table>
+</div>
+
 </body>
 </html>
